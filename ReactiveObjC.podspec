@@ -33,11 +33,19 @@ TODO: Add long description of the pod here.
   s.watchos.deployment_target = "2.0"
   s.tvos.deployment_target = "9.0"
 
-  s.source_files = 'ReactiveObjC/**/*'
+  s.source_files = 'ReactiveObjC/**/*.{d,h,m,swift}'
+
+  s.ios.exclude_files = "ReactiveObjC/**/*{AppKit,NSControl,NSText,NSTable}*"
+  s.osx.exclude_files = "ReactiveObjC/**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIImagePicker,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UIText,MK}*"
+  s.tvos.exclude_files = "ReactiveObjC/**/*{AppKit,NSControl,NSText,NSTable,UIActionSheet,UIAlertView,UIDatePicker,UIImagePicker,UIRefreshControl,UISlider,UIStepper,UISwitch,MK}*"
+  s.watchos.exclude_files = "ReactiveObjC/**/*{UIActionSheet,UIAlertView,UIBarButtonItem,UIButton,UICollectionReusableView,UIControl,UIDatePicker,UIGestureRecognizer,UIImagePicker,UIRefreshControl,UISegmentedControl,UISlider,UIStepper,UISwitch,UITableViewCell,UITableViewHeaderFooterView,UIText,MK,AppKit,NSControl,NSText,NSTable,NSURLConnection}*"
 
   # s.resource_bundles = {
   #   'ReactiveObjCPod' => ['ReactiveObjCPod/Assets/*.png']
   # }
+
+  s.ios.framework  = 'UIKit'
+  s.osx.framework  = 'AppKit'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
